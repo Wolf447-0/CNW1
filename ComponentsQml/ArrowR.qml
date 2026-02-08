@@ -3,15 +3,17 @@ import QtQuick.Window
 
 
 Item {
+    id:rootr
     width: 40
     height: 25
-
+    signal clicked()
     Canvas {
+        id: arrowCanvasR
         anchors.fill: parent
         onPaint: {
             const context = getContext("2d");
             context.reset();
-            context.strokeStyle = "#7b838f"; 
+            context.strokeStyle = mouseareaR.pressed? "#7b838f":"white"; 
             context.lineWidth = 2.5;         
             context.lineCap = "round";    
             context.lineJoin = "round";    
@@ -22,5 +24,12 @@ Item {
             context.lineTo(parent.width * 0.2, parent.height * 0.9);
             context.stroke();
         }
+    }
+    MouseArea{
+        id:mouseareaR
+        anchors.fill: parent
+        hoverEnabled: true
+        onClicked: rootr.clicked() 
+        onPressedChanged: arrowCanvasR.requestPaint()
     }
 }

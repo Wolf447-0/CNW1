@@ -42,7 +42,7 @@ Window {
             }
             Text{
                 anchors.centerIn:parent
-                text:calendarView.this_month+ " " +calendarView.Get_name_month(calendarView.this_month)+" "+ calendarView.this_year+" г."
+                text:calendarView.realDay + " " + calendarView.Get_name_month(calendarView.realMonth) +" "+ calendarView.realYear +" г."
                 color: "#d0def5"
                 font.family: "Consolas"
                 font.pixelSize: 16
@@ -115,13 +115,23 @@ Item {
         color: "black"
         opacity: 0.4
     }
-
+    Text{
+        anchors.centerIn: parent
+        text:calendarView.Get_name_month_n(calendarView.this_month) +" "+ calendarView.this_year
+        font.pixelSize: 14
+        color: "#d0def5"
+        font.family: "Consolas"
+    }
  
     ArrowL {
         id: arrow_l
         anchors.left: parent.left
         anchors.leftMargin: 20 
         anchors.verticalCenter: parent.verticalCenter 
+
+        onClicked:{
+            calendarView.Previos_month()
+        }
     }
 
    
@@ -130,6 +140,9 @@ Item {
         anchors.right: parent.right
         anchors.rightMargin: 20 
         anchors.verticalCenter: parent.verticalCenter
+         onClicked:{
+            calendarView.Next_month()
+        }
     }
 }
 
