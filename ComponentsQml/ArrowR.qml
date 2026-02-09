@@ -13,7 +13,7 @@ Item {
         onPaint: {
             const context = getContext("2d");
             context.reset();
-            context.strokeStyle = mouseareaR.pressed? "#7b838f":"white"; 
+            context.strokeStyle = mouseareaR.pressed? "white":"#7b838f"; 
             context.lineWidth = 2.5;         
             context.lineCap = "round";    
             context.lineJoin = "round";    

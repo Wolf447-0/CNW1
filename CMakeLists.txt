@@ -1,14 +1,20 @@
 cmake_minimum_required(VERSION 3.16)
 project(CNW LANGUAGES CXX)
+
+# set(CMAKE_AUTOMOC ON)
+# set(CMAKE_AUTORCC ON) 
+# set(CMAKE_AUTOUIC ON)
+
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 find_package(Qt6 REQUIRED COMPONENTS Quick)
 
 qt_standard_project_setup()
-
 qt_add_executable(CNW
     main.cpp
     Sources/calendarmodel.h
     Sources/calendarmodel.cpp
+    Sources/timemanager.h   
+    Sources/timemanager.cpp
 )
 
 target_include_directories(CNW PRIVATE ComponentsQml)

@@ -1,6 +1,8 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include "calendarmodel.h"
+#include "timemanager.h"
+
 
 int main(int argc, char *argv[])
 {
@@ -9,6 +11,7 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
 
     qmlRegisterType<CalendarModel>("MyCalendar", 1, 0, "CalendarClass");
+    qmlRegisterType<TimeManager>("MyTime", 1, 0, "Time");
   
     engine.loadFromModule("QtFormQuick", "Main");
 
@@ -17,4 +20,5 @@ int main(int argc, char *argv[])
 
     return app.exec();
 }
+
 

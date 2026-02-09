@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Window
 import QtQuick.Controls
 import MyCalendar 1.0
+import MyTime 1.0
 
 
 Window {
@@ -19,6 +20,8 @@ Window {
         onActiveChanged: if (active) root.startSystemMove()
     }
 
+
+
     Row{
         id:top_row
         anchors.top: parent.top
@@ -29,12 +32,30 @@ Window {
             anchors.fill: parent
             color: "black"
             opacity: 0.4 
-        }
+        } 
+       Time {
+    id: time
+}
+
+
+Item {
+    height: parent.height
+    width: parent.width / 2
+   
+
+    Text {
+        anchors.centerIn: parent
+        text: time.currentTime  
+        font.pixelSize: 22
+        color: "white"
+        font.family: "Consolas"
+    }
+}
 
         Item{
             height:parent.height
             width:parent.width/2
-            anchors.right: parent.right
+           anchors.right: parent.right
             Rectangle{
                 anchors.fill: parent
                 color: "#2f2d40"
